@@ -7,29 +7,26 @@
  */
 
 import React from 'react';
-import { View, Text } from 'react-native';
 import { combineReducers } from 'redux';
 import { userReducer } from './redux/reducers/userReducer';
 import { storeCreator } from './redux/store';
-import { userRequestRegistrationPassed, userRequestRegistrationFailed} from './redux/actions';
+import { Provider } from "react-redux";
+import CreateUser from './containers/CreateUser';
+import SignIn from './containers/SignIn';
 
 const rootReducer = combineReducers({
     user: userReducer
 });
 
 const store = storeCreator(rootReducer);
-store.dispatch(userRequestRegistrationFailed('asd'));
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
-unsubscribe();
+
 
 const App: () => React$Node = () => {
   return (
-    <View style={{ flex: 1 }}>
-        <Text>
-          Welcome abroad
-        </Text>
-    </View>
+        <Provider store={store}>
+            <SignIn/>
+        </Provider>
   );
 };
 
