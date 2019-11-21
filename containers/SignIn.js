@@ -4,11 +4,13 @@ import SignInScreen from '../components/SignInScreen';
 
 const mapStateToProps = state => ({
     signInErrorMessage: state.user.signInErrorMessage,
-    signInPassed: state.user.signInPassed
+    signInPassed: state.user.signInPassed,
+    loginFields: state.loginFields
 });
 
 const mapDispatchToProps = dispatch => ({
-   signIn : (email, password) => dispatch(signIn(email, password))
+    signIn : (email, password) => dispatch(signIn(email, password)),
+    onTextChanged: (name, text) => dispatch({name: 'login'+name, text})
 });
 
 export default connect(

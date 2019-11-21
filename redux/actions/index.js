@@ -57,3 +57,5 @@ export function signIn(email, password){
 }
 
 export const receiveMessages = createAction(actions.MESSAGES_RECEIVED, messages => ({messages}));
+
+export const onTextChanged = createAction(actions.ON_TEXT_CHANGED);
