@@ -1,5 +1,5 @@
 import firebase from 'react-native-firebase';
-import {updateUserProfile} from './updateUserProfile';
+import { updateUserProfile } from '../utilities/updateUserProfile';
 
 export const createUserWithEmailAndPassword = (userInfo, dispatcher) => {
     const { email, password } = userInfo;

@@ -1,7 +1,7 @@
-import { createActions } from 'redux-actions';
+import { createActions, createAction } from 'redux-actions';
 import { actions } from './constants';
-import { createUserWithEmailAndPassword } from '../../utilities/createUserWithEmailAndPassword';
-import { signInWithEmailAndPassword } from '../../utilities/signInWithEmailAndPassword';
+import { createUserWithEmailAndPassword } from '../../services/createUserWithEmailAndPassword';
+import { signInWithEmailAndPassword } from '../../services/signInWithEmailAndPassword';
 import { getValidationErrorCode } from '../../utilities/validateFields';
 import { createUserValidation } from '../../components/CreateUserScreen/validation';
 import { signInValidation } from '../../components/SignInScreen/validation';
@@ -55,3 +55,5 @@ export function signIn(email, password){
         }
     }
 }
+
+export const receiveMessages = createAction(actions.MESSAGES_RECEIVED, messages => ({messages}));

@@ -6,27 +6,12 @@
  * @flow
  */
 
-import React from 'react';
-import { combineReducers } from 'redux';
-import { userReducer } from './redux/reducers/userReducer';
-import { storeCreator } from './redux/store';
-import { Provider } from "react-redux";
-import CreateUser from './containers/CreateUser';
-import SignIn from './containers/SignIn';
-
-const rootReducer = combineReducers({
-    user: userReducer
-});
-
-const store = storeCreator(rootReducer);
-
-
+import React from "react";
+import ChatApp from './components/App';
 
 const App: () => React$Node = () => {
   return (
-        <Provider store={store}>
-            <SignIn/>
-        </Provider>
+       <ChatApp/>
   );
 };
 

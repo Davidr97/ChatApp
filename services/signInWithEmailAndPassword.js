@@ -7,10 +7,9 @@ export const signInWithEmailAndPassword = (userInfo, dispatcher) => {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(userCredential => {
-            const { displayName, photoURL } = userCredential.user;
+            const { uid, displayName, photoURL } = userCredential.user;
             const userInfo = {
-                email,
-                password,
+                uid,
                 displayName,
                 photoURL
             };
