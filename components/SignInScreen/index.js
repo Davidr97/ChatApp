@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import Input from '../Input';
+import Button from '../Button';
+import InputGroup from '../InputGroup';
+import { colors } from '../../styles/colors';
+import { styles } from './styles';
+import SmallText from '../SmallText';
 
 
 class SignInScreen extends React.Component{
@@ -17,16 +23,41 @@ class SignInScreen extends React.Component{
     }
 
     _signIn = () => {
+        const { loginEmail, loginPassword } = this.props.loginFields;
         const { signIn } = this.props;
+        signIn(loginEmail, loginPassword);
     };
 
     render() {
-        const { signInErrorMessage } = this.props;
+        const { signInErrorMessage, loginFields, onTextChanged } = this.props;
         return (
-            <View style={{flex:1}}>
-                <Text>
-                    Sign in screen
-                </Text>
+            <View style={styles.container}>
+                <View style={styles.loginScreen}>
+                    <InputGroup>
+                        <Input
+                            name={'Email'}
+                            value={loginFields.loginEmail}
+                            onTextChanged={onTextChanged}
+                            placeholder={'Email'}
+                        />
+                        <Input
+                            name={'Password'}
+                            value={loginFields.loginPassword}
+                            onTextChanged={onTextChanged}
+                            placeholder={'Password'}
+                            secureTextEntry={true}
+                        />
+                        {signInErrorMessage && <SmallText styles={styles.errorMessage}>{signInErrorMessage}</SmallText>}
+                    </InputGroup>
+                    <InputGroup styles={styles.buttonGroup}>
+                        <Button backgroundColor={colors.purple} color={colors.white} onPress={this._signIn}>
+                            Login
+                        </Button>
+                        <Button backgroundColor={colors.purple} color={colors.white}>
+                            Sign up
+                        </Button>
+                    </InputGroup>
+                </View>
             </View>
         );
     }

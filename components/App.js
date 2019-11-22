@@ -7,7 +7,7 @@ import { registerFieldsReducer } from '../redux/reducers/registerFieldsReducer';
 import { storeCreator } from '../redux/store';
 import { Provider } from "react-redux";
 import { Text } from "react-native";
-
+import SignIn from '../containers/SignIn';
 
 const rootReducer = combineReducers({
     user : userReducer,
@@ -23,9 +23,7 @@ class ChatApp extends React.Component{
     render() {
         return (
             <Provider store={store}>
-                <Text>
-                    Main app
-                </Text>
+                <SignIn/>
             </Provider>
         );
     }
