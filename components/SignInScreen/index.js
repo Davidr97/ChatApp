@@ -15,10 +15,8 @@ class SignInScreen extends React.Component{
 
     componentDidUpdate(){
         const { signInPassed } = this.props;
-        console.log(this.props);
         if(signInPassed){
-            // navigate
-            console.log('Navigation time');
+            this.props.navigation.navigate('Chat');
         }
     }
 
@@ -53,7 +51,7 @@ class SignInScreen extends React.Component{
                         <Button backgroundColor={colors.purple} color={colors.white} onPress={this._signIn}>
                             Login
                         </Button>
-                        <Button backgroundColor={colors.purple} color={colors.white}>
+                        <Button backgroundColor={colors.purple} color={colors.white} onPress={() => this.props.navigation.navigate('CreateUser')}>
                             Sign up
                         </Button>
                     </InputGroup>
