@@ -47,6 +47,10 @@ export const errors = {
     VALIDATION_PHOTO_URL_REQUIRED : {
         errorCode : "validation/required-photo-url",
         errorMessage : "The photo url must not be empty"
+    },
+    FETCH_USERS_REQUEST_FAILED: {
+        errorCode : "fetchUsers/request-failed",
+        errorMessage : "An error occurred while trying to get the users"
     }
 };
 

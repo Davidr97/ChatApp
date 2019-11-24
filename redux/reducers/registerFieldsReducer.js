@@ -1,4 +1,5 @@
 import { createInputFieldsReducer } from '../../utilities/createInputFieldsReducer';
+import { actions } from '../actions/constants';
 
 const initialState = {
     registerDisplayName : '',
@@ -7,4 +8,8 @@ const initialState = {
     registerPassword : ''
 };
 
-export const registerFieldsReducer = createInputFieldsReducer(initialState);
+const actionHandlers = {
+    [actions.CLEAR_REGISTRATION_FIELDS] : () => initialState
+};
+
+export const registerFieldsReducer = createInputFieldsReducer(initialState, actionHandlers);

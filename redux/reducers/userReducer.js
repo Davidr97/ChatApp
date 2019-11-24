@@ -40,6 +40,20 @@ const signInPassedHandler = (state, action) => {
     })
 };
 
+const resetRegistrationFlagHandler = (state) => {
+    return ({
+        ...state,
+        registrationPassed: false
+    })
+};
+
+const resetLoginFlagHandler = (state) => {
+    return ({
+        ...state,
+        signInPassed: false
+    })
+};
+
 const initialState = {
     userInfo: {},
     registrationErrorMessage: null,
@@ -52,5 +66,7 @@ export const userReducer = handleActions({
     [actions.USER_REQUEST_REGISTRATION_FAILED] : registrationFailedHandler,
     [actions.USER_REQUEST_REGISTRATION_PASSED] : registrationPassedHandler,
     [actions.USER_SIGN_IN_FAILED] : signInFailedHandler,
-    [actions.USER_SIGN_IN_PASSED] : signInPassedHandler
+    [actions.USER_SIGN_IN_PASSED] : signInPassedHandler,
+    [actions.RESET_REGISTRATION_FLAG] : resetRegistrationFlagHandler,
+    [actions.RESET_LOGIN_FLAG] : resetLoginFlagHandler
 }, initialState);

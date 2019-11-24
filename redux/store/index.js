@@ -8,6 +8,6 @@ export const storeCreator = (reducer) => createStore(
     reducer,
     applyMiddleware(
         thunkMiddleware, // lets us dispatch() functions
-        loggerMiddleware // neat middleware that logs actions
+        //loggerMiddleware // neat middleware that logs actions
     )
 );

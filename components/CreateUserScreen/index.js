@@ -9,8 +9,16 @@ import {colors} from '../../styles/colors';
 
 
 class CreateUserScreen extends React.Component{
+
     constructor(props) {
         super(props);
+    }
+
+    componentWillUnmount(){
+        this.props.clearFields();
+        if(this.props.registrationPassed){
+            this.props.resetRegistrationFlag();
+        }
     }
 
     componentDidUpdate(){

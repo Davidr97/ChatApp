@@ -9,6 +9,7 @@ import SmallText from '../SmallText';
 
 
 class SignInScreen extends React.Component{
+
     constructor(props) {
         super(props);
     }
@@ -16,6 +17,8 @@ class SignInScreen extends React.Component{
     componentDidUpdate(){
         const { signInPassed } = this.props;
         if(signInPassed){
+            this.props.clearLoginFields();
+            this.props.resetLoginFlag();
             this.props.navigation.navigate('Chat');
         }
     }

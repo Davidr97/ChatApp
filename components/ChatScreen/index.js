@@ -1,52 +1,25 @@
-import React from 'react'
-import { GiftedChat } from 'react-native-gifted-chat'
+import React from 'react';
+import { styles } from './styles';
+import { View } from "react-native";
+import UsersList from '../UsersList';
+import Chat from '../Chat';
 
 class ChatScreen extends React.Component {
-    state = {
-        messages: [],
-    };
-
-    componentWillMount() {
-        this.setState({
-            messages: [
-                {
-                    _id: 1,
-                    text: 'Hello developer',
-                    createdAt: new Date(),
-                    user: {
-                        _id: 2,
-                        name: 'React Native',
-                        avatar: 'https://placeimg.com/140/140/any',
-                    },
-                },
-            ],
-        })
-    }
-
-    onSend(messages = []) {
-        console.log(messages);
-        this.setState(previousState => ({
-            messages: GiftedChat.append(previousState.messages, messages),
-        }))
-    }
-
-    componentWillUnmount(){
-        console.log('unmounted');
-    }
 
     render() {
         return (
-            <GiftedChat
-                messages={this.state.messages}
-                onSend={messages => this.onSend(messages)}
-                user={{
-                    _id: 1,
-                    name: 'asd',
-                    photoURL: 'asd',
-                    something: 'something'
-                }}
-            />
-        )
+            <View style={styles.container}>
+                <View style={styles.usersList}>
+                    <UsersList users={this.props.users} getUsers={this.props.getUsers}/>
+                </View>
+                <View style={styles.usersChat}>
+                    <Chat
+                        userInfo={this.props.userInfo}
+                        messages={this.props.messages}
+                        onReceiveMessages={this.props.onReceiveMessages}/>
+                </View>
+            </View>
+        );
     }
 }
 
