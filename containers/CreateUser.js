@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { createUser } from '../redux/actions';
+import {clearLoginFields, createUser} from '../redux/actions';
 import { onTextChanged } from '../redux/actions';
 import { clearRegistrationFields } from '../redux/actions';
 import { resetRegistrationFlag } from '../redux/actions';
@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
     createUser: (email, password, displayName, photoURL) => dispatch(createUser(email, password, displayName, photoURL)),
     onTextChanged: (name, text) => dispatch(onTextChanged({name: 'register'+name, text})),
     clearFields: () => dispatch(clearRegistrationFields()),
+    clearLoginFields: () => dispatch(clearLoginFields()),
     resetRegistrationFlag: () => dispatch(resetRegistrationFlag())
 });
 

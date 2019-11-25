@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, KeyboardAvoidingView } from "react-native";
 import { styles } from './styles';
 import InputGroup from '../InputGroup';
 import Input from '../Input';
@@ -16,6 +16,7 @@ class CreateUserScreen extends React.Component{
 
     componentWillUnmount(){
         this.props.clearFields();
+        this.props.clearLoginFields();
         if(this.props.registrationPassed){
             this.props.resetRegistrationFlag();
         }
@@ -38,7 +39,7 @@ class CreateUserScreen extends React.Component{
         const { registrationErrorMessage, registerFields, onTextChanged } = this.props;
         return (
             <View style={styles.container}>
-                <View style={styles.registerScreen}>
+                <KeyboardAvoidingView style={styles.registerScreen}>
                     <InputGroup>
                         <Input
                             name={'DisplayName'}
@@ -72,7 +73,7 @@ class CreateUserScreen extends React.Component{
                             Sign up
                         </Button>
                     </InputGroup>
-                </View>
+                </KeyboardAvoidingView>
             </View>
         );
     }

@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, KeyboardAvoidingView } from "react-native";
 import Input from '../Input';
 import Button from '../Button';
 import InputGroup from '../InputGroup';
@@ -33,7 +33,7 @@ class SignInScreen extends React.Component{
         const { signInErrorMessage, loginFields, onTextChanged } = this.props;
         return (
             <View style={styles.container}>
-                <View style={styles.loginScreen}>
+                <KeyboardAvoidingView style={styles.loginScreen}>
                     <InputGroup>
                         <Input
                             name={'Email'}
@@ -58,7 +58,7 @@ class SignInScreen extends React.Component{
                             Sign up
                         </Button>
                     </InputGroup>
-                </View>
+                </KeyboardAvoidingView>
             </View>
         );
     }
